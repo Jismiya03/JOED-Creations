@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOED Creations</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family:"Candara", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 50px;
+            right: 1px;
+            left: 1100px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            color: #244A91;
+            text-decoration: none;
+            padding: 10px 50px;
+        }
+        .navbar a:hover {
+            background-color: #5de073;
+            border-radius: 5px;
+            color: white;
+        }
+        .menu-button {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .header-call {
+            display: flex;
+            flex-direction: row;
+            text-align: right;
+            position: absolute;
+            top: 10px;
+            right: 50px;
+        }
+        .header-call a {
+            text-decoration: none;
+            color: black;
+            padding: 10px 20px 0;
+            font-family:"Arial", sans-serif;
+        }
+        .header-call a:hover {
+            background-color: #5de073;
+            border-radius: 5px;
+            padding: 10px 20px;
+        }
+        .popup-menu {
+            display: none;
+            position: fixed;
+            top: 9%;
+            right: 10%;
+            left: 79%;
+            width: 250px;
+            height: 300px;
+            background-color: #4cb8ee;
+            color: white;
+            text-align: center;
+            padding: 55px 10px;
+            padding-top: 1px;
+            z-index: 999;
+        }
+        .popup-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            margin: 20px;
+            padding: 8px;
+            border-bottom: 1px solid white;
+            font-family:"Arial", sans-serif;
+        }
+        .popup-menu a:hover {
+            background-color: #5de073;
+            border-radius: 10px;
+            color: white;
+        }
+        .close-btn {
+            position: absolute;
+            top: 1px;
+            right: 10px;
+            font-size: 36px;
+            cursor: pointer;
+        }
+        .hero {
+            position: relative;
+            background-image: url('home ext.jpg');
+            background-size: cover;
+            background-position: top;
+            color: white;
+            text-align: center;
+            padding: 255px 50px;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero h1, .hero p {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 50px;
+            margin: 0;
+            font-family:"Arial bold", sans-serif;
+        }
+        .hero p {
+            font-size: 20px;
+            margin: 10px 0 0;
+        }
+        .about, .services, .projects, .testimonials, .contact-form {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .about h2, .services h2, .projects h2, .testimonials h2, .contact-form h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #244A91;
+            
+        }
+
+        .about-container {
+    background: white;
+    box-shadow: 0 4px 8px rgb(151, 193, 240); /* Change this to your desired shadow color */
+    padding: 40px; /* Increased padding to add height */
+    border-radius: 8px; /* Adjust the border radius as needed */
+    border: 1px solid #75a8d1; /* Optional: Add a border for more defined edges */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto; /* Center the container within its parent */
+    max-width: 1000px; /* Adjust the maximum width as needed */
+    min-height: 400px; /* Set a minimum height as needed */
+}
+
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.about-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "arial", sans-serif;
+    font-size: 17px;   
+    width: 100%; /* Ensure the content takes the full width of the container */
+}
+
+.about-text, .about-image {
+    flex: 1;
+    padding: 40px; /* Increased padding to add height */
+    max-width: 50%; /* Ensure the text and image each take up to 50% of the container's width */
+    line-height: 1.5; /* Adjust this value to increase line spacing */
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+
+        .services, .services h2, .services h3, .services ol, .services li {
+            font-family: "calibri", sans-serif;
+        }
+        
+        .testimonials-container {
+            background: white;
+            box-shadow: 0 4px 8px rgb(151, 193, 240); /* Change this to your desired shadow color */
+            padding: 20px;
+            border-radius: 8px; /* Adjust the border radius as needed */
+            border: 1px solid #75a8d1; /* Optional: Add a border for more defined edges */
+        }
+        .testimonials, .testimonials h2, .testimonials p {
+            font-family:"Candara", sans-serif;           
+            text-align: center;
+            text-justify: inter-word;
+}
+.testimonials-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+    height: 300px;
+    
+}
+
+.testimonial-card {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin: 10px;
+    max-width: 300px;
+}
+
+
+.testimonial-card h3 {
+    margin-bottom: 10px;
+}
+
+.testimonial-card p {
+    font-size: 14px;
+}
+
+.testimonial-card a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+
+.testimonial {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0;
+    position: relative;
+    flex: 1 1 calc(33% - 20px); /* Adjust the width to fit three items per row with space in between */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial h3 {
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.testimonial-text {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+    font-family: "arial", sans-serif;
+    font-size: 17px; 
+}
+.testimonial p {
+    text-align: justify;
+    font-family: "arial", sans-serif;
+    font-size: 17px; 
+}
+
+
+
+.more-text {
+    display: none;
+}
+
+.read-more-btn {
+    display: block;
+    background: none;
+    border: none;
+    color: #007bff;
+    padding: 0;
+    font-size: 14px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+}
+
+.contact-container {
+            background: white;
+            box-shadow: 0 4px 8px rgb(151, 193, 240); /* Change this to your desired shadow color */
+            padding: 20px;
+            border-radius: 8px; /* Adjust the border radius as needed */
+            border: 1px solid #75a8d1; /* Optional: Add a border for more defined edges */
+            min-height: 400px; /* Set a minimum height as needed */
+           display: flex;
+        }
+        
+        .contact-form form ,.contact-form-image {
+            max-width: 600px;
+            margin: 0 auto;
+            padding:50px;
+            flex: 1;
+            padding: 10px; 
+        }
+        .contact-form-image img {
+            width: 80%;
+            border-radius: 5px;
+            margin-left: 30px;
+            margin-top: 10%;
+
+        }
+        .contact-form h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #244A91;
+}
+
+.contact-form .form-group {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-form .box {
+    background: #244A91;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #75a8d1;
+    margin-right: 10px;
+    flex: 0 0 150px;
+    margin-bottom: 15px; /* Adjust margin-bottom for spacing */
+}
+
+.contact-form label {
+    font-weight: bold;
+    color: #ffffff;
+    font-family: "calibri", sans-serif;
+    
+}
+
+        .contact-form input, .contact-form textarea {    
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: "calibri", sans-serif;
+        border: 1px solid #244A91;
+        margin-bottom: 15px; /* Adjust margin-bottom for spacing */
+        }
+        
+        .contact-form textarea {
+    width: 75%;
+    height: 120px; /* Adjust the height as per your requirement */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #244A91;
+    border-radius: 5px;
+    font-family: "Calibri", sans-serif;
+    margin-bottom: 15px; /* Adjust margin-bottom for spacing */
+}
+
+        .contact-form input[type="submit"] {
+        background-color: #244A91;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-family: "calibri", sans-serif;
+        width: 20%;
+        margin-left: 55%;
+        }
+
+        .contact-form input[type="submit"]:hover {
+        background-color: #5de073;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">JOED Creations</a>
+        </div>
+
+        <div class="menu-button" onclick="toggleMenu()">☰</div>
+        <div class="header-call">
+            <a href="tel:+919746013866" target="_blank" title=""> +91 9746013866 </a>
+            
+        </div>
+    </nav>
+
+    <div class="popup-menu" id="popupMenu">
+        <div class="close-btn" onclick="toggleMenu()">&times;</div>
+        <a href="#about" onclick="hideMenu()">About</a>
+        <a href="services.html" onclick="hideMenu()">Services</a>
+        <a href="projects.html" onclick="hideMenu()">Projects</a>
+        <a href="#testimonials" onclick="hideMenu()">Testimonials</a>
+        <a href="#contact" onclick="hideMenu()">Contact</a>
+    </div>
+
+    <section class="hero">
+        <h1>Welcome to JOED Creations</h1>
+        <p>Your trusted partner in building your dreams</p>
+    </section>
+
+    <section class="about" id="about">
+        <h2>About Us</h2>
+        <div class="about-container">
+            <div class="about-content">
+                <div class="about-text">
+                    <p>At JOED Creations, we pride ourselves on delivering top-notch mechanical, electrical, 
+                        and plumbing services with a commitment to quality and innovation. Our team of experienced 
+                        professionals brings extensive expertise and a passion for excellence to every project,
+                         ensuring that your systems operate smoothly and efficiently.</p>
+                    <p>Our mission is to provide exceptional service, tailored to meet your specific needs, 
+                        while maintaining the highest standards of safety and reliability. At JOED Creations,
+                         we’re dedicated to creating solutions that not only meet but exceed your expectations.</p>
+                </div>
+                <div class="about-image">
+                    <img src="aboutus.jpeg" alt="About Us">
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonials-container">
+            
+            <div class="testimonial">   
+                <h3>John Doe</h3>
+                <p class="testimonial-text">
+                    "Working with Joed Creations on our latest project was a fantastic experience... 
+                    <span class="more-text">
+                        Their MEP services were top-notch, delivering efficient and reliable solutions that exceeded
+                        our expectations. Their team's attention to detail and commitment to quality ensured 
+                        our project was completed on time and within budget. We highly recommend Joed Creations
+                        for any MEP needs."
+                    </span>
+                </p>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            
+            </div>
+            <div class="testimonial">
+                <h3>Jane Smith</h3>
+                <p class="testimonial-text">
+                    "We partnered with Joed Creations for the MEP design and installation in our new facility,
+                    and the results were outstanding..
+                    <span class="more-text">
+                        Their team was professional, knowledgeable, and always available to answer our 
+                        questions. They delivered a comprehensive solution that integrates perfectly with our 
+                        building's infrastructure. We highly recommend Joed Creations for any MEP project."
+                    </span>
+                </p>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+            <div class="testimonial">
+                <h3>Sam Wilson</h3>
+                <p class="testimonial-text">
+                    "Joed Creations impressed us with their innovative approach to MEP services..
+                    <span class="more-text">
+                        They not only delivered high-quality work but also provided valuable insights and 
+                        recommendations that improved the overall efficiency of our systems. Their dedication 
+                        to customer satisfaction is unmatched, and we look forward to working with them on 
+                        future projects."
+                    </span>
+                </p>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="contact-form" id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <form action="https://api.web3forms.com/submit" method="POST">
+            <div class="form-group">
+                <div class="box">
+                    <label for="name">Name:</label>
+                </div>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <div class="box">
+                    <label for="email">Email:</label>
+                </div>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <div class="box">
+                    <label for="subject">Subject:</label>
+                </div>
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+                <div class="box">
+                    <label for="message">Message:</label>
+                </div>
+                <textarea id="message" name="message" rows="5"  placeholder="Your Message" required></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Send Message">
+            </div>
+            <input type="hidden" name="access_key" value="e54c60d3-5f35-4cc7-960b-dcc2f8f2e077">
+        </form>
+        <div class="contact-form-image">
+            <img src="world map (1).jpg" alt="Contact Us">
+        </div>
+    </div>
+    
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Construction Co. All rights reserved.</p>
+    </footer>
+
+    
+    <script>
+        function toggleReadMore(button) {
+    const moreText = button.previousElementSibling.querySelector('.more-text');
+    
+    if (moreText.style.display === 'inline') {
+        moreText.style.display = 'none';
+        button.textContent = 'Read More';
+    } else {
+        moreText.style.display = 'inline';
+        button.textContent = 'Read Less';
+    }
+}
+        function toggleMenu() {
+            var popupMenu = document.getElementById("popupMenu");
+            if (popupMenu.style.display === "block") {
+                popupMenu.style.display = "none";
+            } else {
+                popupMenu.style.display = "block";
+            }
+        }
+
+        function hideMenu() {
+            document.getElementById("popupMenu").style.display = "none";
+        }
+
+        function handleFormSubmit(event) {
+            // Set a flag in sessionStorage to indicate form submission
+            sessionStorage.setItem('formSubmitted', 'true');
+        }
+
+        function resetContactForm() {
+            var form = document.querySelector('.contact-form form');
+            if (form) {
+                form.reset();
+            }
+        }
+
+        function checkFormStatus() {
+            var formSubmitted = sessionStorage.getItem('formSubmitted');
+            if (formSubmitted === 'true') {
+                resetContactForm();
+                // Clear the flag after resetting the form
+                sessionStorage.removeItem('formSubmitted');
+            }
+        }
+
+        // Event listener to check form status when the page is loaded
+        window.addEventListener('load', checkFormStatus);
+
+        // Add event listener to handle form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.querySelector('.contact-form form');
+            if (form) {
+                form.addEventListener('submit', handleFormSubmit);
+            }
+        });
+    </script>
+    
+</body>
+</html>
