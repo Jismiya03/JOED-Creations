@@ -1,0 +1,207 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<style>
+     body {
+            font-family:"Candara", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 50px;
+            right: 1px;
+            left: 1100px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            color: #244A91;
+            text-decoration: none;
+            padding: 10px 50px;
+        }
+        .navbar a:hover {
+            background-color: #5de073;
+            border-radius: 5px;
+            color: white;
+        }
+        .menu-button {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .header-call {
+            display: flex;
+            flex-direction: row;
+            text-align: right;
+            position: absolute;
+            top: 10px;
+            right: 50px;
+        }
+        .header-call a {
+            text-decoration: none;
+            color: black;
+            padding: 10px 20px 0;
+            font-family:"Arial", sans-serif;
+        }
+        .header-call a:hover {
+            background-color: #5de073;
+            border-radius: 5px;
+            padding: 10px 20px;
+        }
+        .popup-menu {
+            display: none;
+            position: fixed;
+            top: 9%;
+            right: 10%;
+            left: 79%;
+            width: 250px;
+            height: 300px;
+            background-color: #4cb8ee;
+            color: white;
+            text-align: center;
+            padding: 55px 10px;
+            padding-top: 1px;
+            z-index: 999;
+        }
+        .popup-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            margin: 20px;
+            padding: 8px;
+            border-bottom: 1px solid white;
+            font-family:"Arial", sans-serif;
+        }
+        .popup-menu a:hover {
+            background-color: #5de073;
+            border-radius: 10px;
+            color: white;
+        }
+        .close-btn {
+            position: absolute;
+            top: 1px;
+            right: 10px;
+            font-size: 36px;
+            cursor: pointer;
+        }
+        .about, .services, .projects, .testimonials, .contact-form {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .about h2, .services h2, .projects h2, .testimonials h2, .contact-form h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #244A91;
+            
+        }
+        .project-container {
+            background: white;
+            box-shadow: 0 4px 8px rgb(151, 193, 240); /* Change this to your desired shadow color */
+            padding: 20px;
+            border-radius: 8px; /* Adjust the border radius as needed */
+            border: 1px solid #75a8d1; /* Optional: Add a border for more defined edges */
+        }
+        .project-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .project-item {
+            flex: 0 0 30%;
+            margin: 10px;
+            text-align: center;
+            font-family: "calibri", sans-serif;
+        }
+        .project-item img {
+            width: 80%;
+            border-radius: 5px;
+        }
+        .project-item p {
+            margin-top: 10px;
+        }
+
+</style>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">JOED Creations</a>
+        </div>
+        <div class="menu-button" onclick="toggleMenu()">☰</div>
+        <div class="header-call">
+            <a href="tel:+919746013866" target="_blank" title=""> +91 9746013866</a>
+        </div>
+    </nav>
+
+    <div class="popup-menu" id="popupMenu">
+        <div class="close-btn" onclick="toggleMenu()">&times;</div>
+        <a href="index.html#about" onclick="hideMenu()">About</a>
+        <a href="services.html" onclick="hideMenu()">Services</a>
+        <a href="projects.html" onclick="hideMenu()">Projects</a>
+        <a href="index.html#testimonials" onclick="hideMenu()">Testimonials</a>
+        <a href="index.html#contact" onclick="hideMenu()">Contact</a>
+    </div>
+
+    <section class="projects" id="projects">
+        <h2>Our Projects</h2>
+        <div class="project-container">
+        <div class="project-gallery">
+            <div class="project-item">
+                
+                <p>Will update soon</p>
+            </div>
+            
+            
+            
+        </div>  
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            var popupMenu = document.getElementById("popupMenu");
+            if (popupMenu.style.display === "block") {
+                popupMenu.style.display = "none";
+            } else {
+                popupMenu.style.display = "block";
+            }
+        }
+
+        function hideMenu() {
+            document.getElementById("popupMenu").style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

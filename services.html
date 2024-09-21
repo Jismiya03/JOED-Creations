@@ -1,0 +1,304 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS file -->
+</head>
+<style>
+        body {
+            font-family:"Candara", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 50px;
+            right: 1px;
+            left: 1100px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            color: #244A91;
+            text-decoration: none;
+            padding: 10px 50px;
+        }
+        .navbar a:hover {
+            background-color: #5de073;
+            border-radius: 5px;
+            color: white;
+        }
+        .menu-button {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .header-call {
+            display: flex;
+            flex-direction: row;
+            text-align: right;
+            position: absolute;
+            top: 10px;
+            right: 50px;
+        }
+        .header-call a {
+            text-decoration: none;
+            color: black;
+            padding: 10px 20px 0;
+            font-family:"Arial", sans-serif;
+        }
+        .header-call a:hover {
+            background-color: #5de073;
+            border-radius: 5px;
+            padding: 10px 20px;
+        }
+        .popup-menu {
+            display: none;
+            position: fixed;
+            top: 9%;
+            right: 10%;
+            left: 79%;
+            width: 250px;
+            height: 300px;
+            background-color: #4cb8ee;
+            color: white;
+            text-align: center;
+            padding: 55px 10px;
+            padding-top: 1px;
+            z-index: 999;
+        }
+        .popup-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            margin: 20px;
+            padding: 8px;
+            border-bottom: 1px solid white;
+            font-family:"Arial", sans-serif;
+        }
+        .popup-menu a:hover {
+            background-color: #5de073;
+            border-radius: 10px;
+            color: white;
+        }
+        .close-btn {
+            position: absolute;
+            top: 1px;
+            right: 10px;
+            font-size: 36px;
+            cursor: pointer;
+        }
+        .about, .services, .projects, .testimonials, .contact-form {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .about h2, .services h2, .projects h2, .testimonials h2, .contact-form h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #244A91;
+            
+        }
+        
+        .services, .services h2, .services h3, .services ol, .services li {
+            font-family: "calibri", sans-serif;
+        }
+        .service-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            background: white;
+            box-shadow: 0 4px 8px rgb(151, 193, 240); /* Change this to your desired shadow color */
+            padding: 20px;
+            border-radius: 8px; /* Adjust the border radius as needed */
+            border: 1px solid #75a8d1; /* Optional: Add a border for more defined edges */
+        }
+        
+        .service-item {
+            flex: 0 0 30%;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .service-item h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .service-item img {
+            width: 80%;
+            height: auto;
+            border-radius: 5px; /* Adjust the image border radius as needed */
+        }
+
+        .service-item ol {
+            list-style-type: circle; /* Change the list-style-type to disc for bullets */
+            
+            padding-left: 80px;
+            text-align: left;
+            margin-top: 10px;
+            line-height: 1.5; /* Adjust this value to increase line spacing */
+        }
+
+        .service-item ol li {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+</style>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">JOED Creations</a>
+        </div>
+        <div class="menu-button" onclick="toggleMenu()">☰</div>
+        <div class="header-call">
+            <a href="tel:+919746013866" target="_blank" title=""> +91 9746013866 </a>
+        </div>
+    </nav>
+
+    <div class="popup-menu" id="popupMenu">
+        <div class="close-btn" onclick="toggleMenu()">&times;</div>
+        <a href="index.html#about" onclick="hideMenu()">About</a>
+        <a href="services.html" onclick="hideMenu()">Services</a>
+        <a href="projects.html" onclick="hideMenu()">Projects</a>
+        <a href="index.html#testimonials" onclick="hideMenu()">Testimonials</a>
+        <a href="index.html#contact" onclick="hideMenu()">Contact</a>
+    </div>
+
+
+    <section class="services" id="services">
+        <h2>Our Services</h2>
+        <div class="service-container">
+
+            <div class="service-item">
+                <h3>Architectural</h3>
+                <img src="architectural.jpg" alt="Architectural">
+                <ol>
+                    <li>MASTER PLANNING</li>
+                    <li>SPACE PLANNING</li>
+                    <li>FACADE DESIGN</li>
+                    <li>LANDSCAPE DESIGN</li>
+                    <li>INTERIOR DESIGN</li>
+                    <li>SUSTAINABLE DESIGN</li>
+                    <li>3D IMAGING</li>                   
+                </ol>
+            </div>
+
+            <div class="service-item">
+                <h3>Mechanical</h3>
+                <img src="mechanical services.jpg" alt="Mechanical">
+                <ol>
+                    <li>PROCESS & POWER PIPING ENGINEERING</li>
+                    <li>CHILLER & AHU PIPING DESIGN CALCULATION</li>
+                    <li>3D DESIGN</li>
+                    <li>SUPPORT CALCULATION</li>
+                    <li>SHOP DRAWING PREPARATION</li>
+                    <li>COORDINATION DRAWING</li>
+                    <li>ESTIMATE BOQ</li>
+                </ol>
+            </div>
+           
+            <div class="service-item">
+                <h3>Electrical</h3>
+                <img src="electrical service.jpg" alt="Electrical">
+                <ol>
+                    <li>SUBSTATIONS & TRANSFORMERS</li>
+                    <li>TRANSMISSION & DISTRIBUTION</li>
+                    <li>CAPTIVE GENERATORS</li>
+                    <li>LOW SIDE DISTRIBUTION</li>
+                    <li>UPS SYSTEMS</li>
+                    <li>LMS & POE NETWORK LIGHTING</li>
+                    <li>LIGHTNING PROTECTION SYSTEMS</li>
+                    <li>EARTHING & GROUNDING SYSTEMS</li>
+                </ol>
+            </div>
+            <div class="service-item">
+                <h3>Plumbing</h3>
+                <img src="plumbing service.jpg" alt="Plumbing">
+                <ol>
+                    <li>HOT & COLD WATER SUPPLY SYSTEM</li>
+                    <li>WATER FILTRATION SYSTEM</li>
+                    <li>IRRIGATION SYSTEM</li>
+                    <li>SWIMMING POOL</li>
+                    <li>EXTERNAL/INTERNAL DRAINAGE SYSTEM</li>
+                    <li>SANITATION,RAIN WATER,SEWAGE TREATMENT</li>
+                    <li>WATER TANK CALCULATION</li>
+                </ol>
+            </div>
+
+            <div class="service-item">
+                <h3>Fire Fighting</h3>
+                <img src="fire protection.jpg" alt="Plumbing">
+                <ol>
+                    <li>FIRE SUPPRESSION SYSTEM</li>
+                    <li>FIREFIGHTING LAYOUT AND DETAILS</li>
+                    <li>GAS QUANTITY CALCULATION</li>
+                    <li>HYDRANT AND SPRINKLER CALCULATION AND DESIGN</li>
+                    <li>SMOKE & FIRE DETECTION SYSTEM</li>
+                    <li>PERFORMING DESIGNS</li>
+                    <li>COORDINATION DURING PROJECT EXECUTION</li>                   
+                </ol>
+            </div>
+           
+            <div class="service-item">
+                <h3>BIM Modeling</h3>
+                <img src="bim.jpg" alt="Electrical">
+                <ol>
+                    <li>RENDERING</li>
+                    <li>CONVERSION OF 2D DESIGN DRAWINGS TO 3D MODELS</li>
+                    <li>MEP-FS FABRICATION DRAWINGS</li>
+                    <li>MEP-FS CONSTRUCTION DRAWINGS</li>
+                    <li>MEP-FS COORDINATION SERVICES</li>
+                    <li>MEP-FS SHOP DRAWINGS</li>                 
+                    <li>SPOOL DRAWINGS</li>                                                                   
+                </ol>
+            </div>
+
+            <div class="service-item">
+                <h3>HVAC</h3>
+                <img src="hvac.jpg" alt="safety">
+                <ol>
+                    <li>VENTILATION SYSTEM</li>
+                    <li>HEAT LOAD CALCULATION</li>
+                    <li>DUCTING DESIGN CALCULATION</li>
+                    <li>AIR CONDITIONING</li>
+                    <li>FRESH AIR & EXHAUST AIR UNIT SELECTION</li>
+                    <li>SMOKE EXTRACTION SYSTEM</li>
+                    <li>SYSTEM COMMISSIONING</li>                   
+                </ol>
+            </div>
+            
+        </div>
+    </section>
+    <script>
+    function toggleMenu() {
+        var popupMenu = document.getElementById("popupMenu");
+        if (popupMenu.style.display === "block") {
+            popupMenu.style.display = "none";
+        } else {
+            popupMenu.style.display = "block";
+        }
+    }
+
+    function hideMenu() {
+        document.getElementById("popupMenu").style.display = "none";
+    }
+</script>
+</body>
+</html>
